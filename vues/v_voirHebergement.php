@@ -5,7 +5,7 @@ auteur : Rémi Hillériteau
 <h2>Les hébergements</h2>
 
 <form method="post" action="?uc=gererHebergementJuges&action=afficherListeHebergement" name="formulaire" class='formulaire'>
-	<label for='r'>Recherche par nom : </label><input name='r' maxlength="20" type="texte" />
+	<label for='r'>Recherche par nom : </label><input name='r' maxlength="20" type="text" />
 	<input type="submit" value="ok">
 </form>
 
