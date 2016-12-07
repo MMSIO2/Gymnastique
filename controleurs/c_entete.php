@@ -14,7 +14,7 @@ switch($uc)
     case 'gererHebergementJuges' : $titre='Gestion des hébergements pour les juges';
     break;
 
-    case 'gererJuge' : $titre='Gestion des juges';
+    case 'gererJuges' : $titre='Gestion des juges';
     break;
 
     case 'nombreParticipants' : $titre='Gestion des participants';
