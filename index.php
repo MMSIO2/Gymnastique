@@ -19,6 +19,12 @@ switch($uc)
 
 	case 'gererHebergementJuges':
 		{include("controleurs/c_gererHebergementJuges.php");break;}
+		
+	case 'voirclubs':
+		{include("controleurs/c_voirclubs.php");break;}
+		
+	case 'voirRepas':
+		{include("controleurs/c_voirRepas.php");break;}
 }
 include("vues/v_pied.php") ;
 require_once("util/fonctions_JS.php");
