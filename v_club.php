@@ -14,7 +14,7 @@
 <?php
    foreach( $lesLignes as $laLigne) 
 {
-	$nomclub = $laLigne['NOM'];
+	$nomclub = $laLigne['NOMA'];
 
 ?>
        <option value="<?php echo $nomclub; ?>"><?php echo $nomclub; ?></option>
@@ -29,11 +29,12 @@
     <p /><input type="submit" value = "valider" /> 
      </form>
 
-     <h2><?php echo $nomclub ?>
-
 <?php
 	if (isset($_POST['club']))
 {
+	?><h2><?php echo $_POST['club'];
+
+
 ?>
 
 
@@ -56,15 +57,15 @@ foreach( $Lesinfos as $Linfo)
 
 <table border=3px>
 	<tr>
-		<td>
+		<th>
 			Catégories
-		</td>
-		<td>
+		</th>
+		<th>
 			Nombre d'équipes
-		</td>
-		<td>
+		</th>
+		<th>
 			Nombre de Gym
-		</td>
+		</th>
 	</tr>
 
 <?php if($equipefa!=0){?>
@@ -73,7 +74,7 @@ foreach( $Lesinfos as $Linfo)
 			FA
 		</td>
 		<td>
-			<?php echo($equipefa); ?>
+			<?php echo $equipefa; ?>
 		</td>
 		<td>
 			<?php echo $nbgymfa; ?>
@@ -87,7 +88,7 @@ foreach( $Lesinfos as $Linfo)
 			FJ
 		</td>
 		<td>
-			<?php echo($equipefj); ?>
+			<?php echo $equipefj; ?>
 		</td>
 		<td>
 			<?php echo $nbgymfj; ?>
@@ -101,7 +102,7 @@ foreach( $Lesinfos as $Linfo)
 			F1A
 		</td>
 		<td>
-			<?php echo($equipef1a); ?>
+			<?php echo $equipef1a; ?>
 		</td>
 		<td>
 			<?php echo $nbgymf1a; ?>
@@ -115,7 +116,7 @@ foreach( $Lesinfos as $Linfo)
 		F1J
 		</td>
 		<td>
-		<?php echo($equipef1j); ?>
+		<?php echo $equipef1j; ?>
 		</td>
 		<td>
 		<?php echo $nbgymf1j; ?>
