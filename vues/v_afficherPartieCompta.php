@@ -4,6 +4,7 @@ auteur : Rémi Hillériteau
  -->
 <h2>La partie compta</h2>
 
+<!-- formulaire pour changer d'association -->
 <form method="post" action="" name="formulaireRecherche" class='formulaire'>
 	<select name='asso' id='asso'>
 		<?php
@@ -15,12 +16,9 @@ auteur : Rémi Hillériteau
 	</select>
 </form>
 
+<!-- formulaire pour modifier la partie compta de l'asso sélectionné -->
 <form method="post" action="?uc=gererPartieComptable&action=modifierCompta&asso=<?php echo $idAsso; ?>" name="formulaire" class='formulaire'>
 	<table>
-		<tr>
-			<td>Montant inscription équipe</td>
-			<td><i>affiché prix ?</i></td>
-		</tr>
 		<tr>
 			<td>Acompte (envoyé)</td>
 			<td>
