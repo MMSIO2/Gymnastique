@@ -7,13 +7,11 @@ switch($action)
 {
 	case 'afficherPartieCompta':
 	{
-		// si une asso est selectionné, on récupère les données de cette dernière
 		if(isset($_REQUEST['asso']) AND !empty($_REQUEST['asso']))
 			$uneAsso=$pdo->getUneAssociation($_REQUEST['asso']);
 		else
-			$uneAsso=$pdo->getPremierAssociation(); // sinon on récupère les données de la première association
+			$uneAsso=$pdo->getPremierAssociation();
 
-		// initialisation des variables
 		$idAsso=$uneAsso['NUMEROASSO'];
 		$montantInscriptionEquipe=$uneAsso['MONTANTINSCRIPTIONEQUIPE'];
 		$acompte=$uneAsso['ACOMPTE'];
@@ -23,17 +21,13 @@ switch($action)
 		$reglementSolde=$uneAsso['REGLEMENTSOLDE'];
 		$ouvertureCompte=$uneAsso['OUVERTURECOMPTE'];
 
-		// on récuèpe le nom de toutes les assos
 		$lesAssociations= $pdo->getNomsAssociations();
-
-		// affichage
 		include("vues/v_afficherPartieCompta.php");
 		break;
 	}
 
 	case 'modifierCompta' :
 	{
-		// enregistrement des modification
 		$idAsso=$_REQUEST['idAsso'];
 		$acompte=$_REQUEST['acompte'];
 		$acompteRecu=$_REQUEST['acompteRecu'];
