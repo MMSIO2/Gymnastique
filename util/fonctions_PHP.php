@@ -41,7 +41,7 @@ function lesHebergemntsTrie($pdo)
 	else
 		$t='NOMHEB';
 
-	$lesHebergements = $pdo->getLesHebergements($r, $o, $t);
+	$lesHebergements = $pdo->getLesHebergementsRecherche($r, $o, $t);
 
 	return $lesHebergements;
 }
@@ -94,4 +94,30 @@ function checked($valeurChecked, $valeurDonnee)
 	return $checked;
 }
 
+
+function selected2($valeurOption, $valeurDonnee)
+{
+	if(isset($valeurDonnee) AND $valeurDonnee==$valeurOption)
+		$selected=" selected='selected' ";
+	else
+		$selected='';
+	return $selected;
+}
+
+function getLesNBRepas($IDJR, $pdo)
+{
+	// on récupère le libelle du repas
+	$getUnRepa=$pdo->getUnRepa($IDJR);
+	$lesNombres['LIBELLEJR']=$getUnRepa['LIBELLEJR'];
+	$lesNombres['IDJR']=$IDJR;
+
+	// on réupère le total de juges pour le repas
+	$lesNombres['jManger']=$pdo->getJugeRepas($IDJR);
+
+	// on récupère le total de gyms pour le repas
+	$lesNombres['gManger']=$pdo->getGymRepas($IDJR);
+
+	return $lesNombres;
+
+}
 ?>

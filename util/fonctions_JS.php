@@ -2,6 +2,174 @@
 
 // fonction pour vérifier les saisies du formulaire de création et de modification d'hébergement
 // auteur : Rémi Hillériteau
+function verifFormulaireJuges()
+{
+	// déclaration des variables
+	var nomJ, prenomJ, tel1, tel2, adresse, cp, ville, mail, region, age, conjoint, sexe, envoyer, alerts, confirmer;
+
+
+	// suppression des alerts précédentes (si une vérif à déjà été effectué)
+		alerts=document.querySelectorAll('#alert');
+
+		for(i=0; i<alerts.length; i++)
+		{
+			alerts[i].parentNode.removeChild(alerts[i]);
+		}
+
+	// initialisation des variables
+		nomJ = document.formulaireJuges.nom;
+		prenomJ = document.formulaireJuges.prenom;
+		tel1 = document.formulaireJuges.tel1;
+		tel2 = document.formulaireJuges.tel2;
+		adresse = document.formulaireJuges.adresse;
+		cp = document.formulaireJuges.cp;
+		ville = document.formulaireJuges.ville;
+		mail = document.formulaireJuges.mail;
+		region = document.formulaireJuges.region;
+		age = document.formulaireJuges.age;
+		conjoint = document.formulaireJuges.conjoint;
+		sexe = document.formulaireJuges.sexe;
+		envoyer=true;
+
+
+	// les vérifications avent l'envoie du formulaire
+		//le nom
+		if(nomJ.value.length>30  || nomJ.value.length==0 || !(isNaN(nomJ.value)))
+			{
+				creerUneAlerte('Le nom est incorrect', nomJ);
+				envoyer=false;
+			}
+
+		//le prenom
+		if(prenomJ.value.length>30  || prenomJ.value.length==0 || !(isNaN(prenomJ.value)))
+			{
+				creerUneAlerte('Le prénom est incorrect', prenomJ);
+				envoyer=false;
+			}
+
+
+		// tel1
+		var telNumber1=tel1.value.replace(/ /g, ""); // on enlève les espaces si existant
+
+		if(telNumber1.length!=10 || isNaN(telNumber1))
+			{
+				creerUneAlerte('Le numéro de téléphone 1 est incorrect', tel1);
+				envoyer=false;
+			}
+
+		// tel2
+		var telNumber2=tel2.value.replace(/ /g, ""); // on enlève les espaces si existant
+
+		if(telNumber2.length!=10 || isNaN(telNumber2))
+			{
+				creerUneAlerte('Le numéro de téléphone 2 est incorrect', tel2);
+				envoyer=false;
+			}
+
+
+		// adresse
+		if(adresse.value.length==0)
+			{
+				creerUneAlerte('Vous devez remplir ce champ', adresse);
+				envoyer=false;
+			}
+
+		// le code postal
+			var cpNombre=cp.value.replace(/ /g, "");
+
+			if(cpNombre.length!=5 || (isNaN(cpNombre)))
+			{
+				creerUneAlerte('Le code postal doit comporter 5 chiffres', cp);
+				envoyer=false;
+			}
+
+		// la ville
+			if(ville.value.length==0 || !(isNaN(ville.value)))
+			{
+				creerUneAlerte('Le nom de la ville est incorrect', ville);
+				envoyer=false;
+			}
+
+		// l'adresse mail
+			if(mail.value<8 || mail.value>50 || mail.value.length<4 || mail.value.indexOf('@', 0)==-1 || mail.value.indexOf('.', 0)==-1)
+			{
+				creerUneAlerte('L\'adresse mail n\'est pas correcte', mail);
+				envoyer=false;
+			}
+
+		// region
+		if(region.value.length==0)
+			{
+				creerUneAlerte('Vous devez remplir ce champ', region);
+				envoyer=false;
+			}
+
+		// age
+			var cpNombre=age.value.replace(/ /g, "");
+
+			if(cpNombre.length>2 || cpNombre.length==0 || (isNaN(cpNombre)))
+			{
+				creerUneAlerte('L\'age doit être entre 0 et 99', age);
+				envoyer=false;
+			}
+
+		if(testRadioConjoint()==false)
+		{
+			envoyer=false;
+		}
+
+		if(testRadioSexe()==false)
+		{
+			envoyer=false;
+		}
+			
+	// on renvoie si le formulaire peut être envoyé ou non
+		if(envoyer==true)
+		{
+			document.formulaireJuges.submit();
+		}
+		else
+		{
+			return false;
+		}
+
+}
+
+
+function testRadioConjoint () {
+
+	var bouton = document.getElementsByName('conjoint');
+	if (bouton[0].checked!=1 && bouton[1].checked!=1) 
+		{
+			alert("Veuillez selectioner un bouton conjoint.");
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+
+}
+
+function testRadioSexe () {
+
+	var bouton = document.getElementsByName('sexe');
+	if (bouton[0].checked!=1 && bouton[1].checked!=1) 
+		{
+			alert("Veuillez selectioner un bouton sexe.");
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+
+}
+
+
+
+// fonction pour vérifier les saisies du formulaire de création et de modification d'hébergement
+// auteur : Rémi Hillériteau
 function verifFormulaireGererHeb()
 {
 	// déclaration des variables
@@ -161,7 +329,7 @@ function confirmSupprHeb(id, nbChambre1PReserve, nbChambre2PReserve)
 
 	if(reservation>=1)
 	{
-		alert("L'hébergement ne peut pas être supprimer car des juges ont déjà réservé dans cet hébergement");
+		alert("L'hébergement ne peut pas être supprimé car des juges ont déjà réservé dans cet hébergement");
 
 	}
 	else

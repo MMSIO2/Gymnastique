@@ -17,13 +17,19 @@ switch($uc)
     case 'gererJuges' : $titre='Gestion des juges';
     break;
 
-    case 'nombreParticipants' : $titre='Gestion des participants';
+    case 'affecterJuges' : $titre='Affectation des juges';
+    break;
+
+    case 'choisirPrestations' : $titre='Choisir prestation';
     break;
 
     case 'gererPartieComptable' : $titre='Gérer la partie comptable';
     break;
 
-    case 'gererCommissionRestauration' : $titre='Commission restauration';
+    case 'voirRepas' : $titre='Commission restauration';
+    break;
+
+    case 'voirclubs' : $titre='Les clubs';
     break;
 
     case 'clubChoisirPrestation' : $titre='choisir les prestation des juges';

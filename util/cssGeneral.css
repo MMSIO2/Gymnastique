@@ -22,8 +22,15 @@ body
 .footer
 {
 	 width: 100%;
+	 min-height: 20px;
 }
 
+a
+{
+	padding: 10px;
+	text-decoration: none;
+	color: rgba(0,0,200,10)!important;
+}
 
 /* tableau */
 	.tableau
@@ -88,3 +95,27 @@ body
 		color: rgba(60,60,200,1);
 		font-size: 20px;
 	}
+	.tableauEffectif
+	{
+		display: block;
+		position: absolute;
+		margin-left: 260px;
+		margin-top: -18px;
+
+	}
+
+/* page connexion */
+.connexion
+{
+	margin: auto;
+	width: 600px;
+	vertical-align: middle;
+	margin-top: 20%;
+}
+.deconnexion
+{
+	display: inline-block;
+	position: absolute;
+	margin-top: -60px;
+	right: 7%;
+}
